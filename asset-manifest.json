@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/ev-punycode-generator/static/js/main.c536f455.js",
+    "main.js": "/ev-punycode-generator/static/js/main.e8820d97.js",
     "static/js/787.189a8a72.chunk.js": "/ev-punycode-generator/static/js/787.189a8a72.chunk.js",
     "index.html": "/ev-punycode-generator/index.html",
-    "main.c536f455.js.map": "/ev-punycode-generator/static/js/main.c536f455.js.map",
+    "main.e8820d97.js.map": "/ev-punycode-generator/static/js/main.e8820d97.js.map",
     "787.189a8a72.chunk.js.map": "/ev-punycode-generator/static/js/787.189a8a72.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c536f455.js"
+    "static/js/main.e8820d97.js"
   ]
 }
