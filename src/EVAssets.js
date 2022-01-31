@@ -12,6 +12,7 @@ const SCALE = 1;
 const EVAssets = () => {
     const canvasEl = useRef(null);
     const imgEl = useRef(null);
+    const domainEl = useRef(null);
     const [title, setTitle] = useState("");
     const {prefix, domain} = useParams();
 
@@ -92,7 +93,26 @@ const EVAssets = () => {
 
         ctx.font = "70px Montserrat"
         ctx.fillStyle= "#0093e9"
-        ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
+        //ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
+
+         const svgCode = `
+    <svg width="620" height="500" xmlns="http://www.w3.org/2000/svg">
+        <foreignObject x="0" y="0" width="620" height="500">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                ${domainEl.current?.outerHTML}
+            </div>
+        </foreignObject>
+    </svg>`;
+
+        const svgCodeEncoded = svgCode.replace(/\n/g, "").replace(/"/g, "'");
+
+        const img = new Image();
+        img.src = `data:image/svg+xml,${svgCodeEncoded}`; 
+
+        img.onload = () => {
+          ctx.drawImage(img, (imgWidth-620)/2, ((imgHeight-350)/2)-20);
+        };
+
 
         
         setTitle(`${Rank.replace(/\s/g, "")} | ${Domains} | ${Registration} | Namecoin Domain`);
@@ -128,6 +148,22 @@ const EVAssets = () => {
             alt="nmcframe"
             onLoad={onLoad}
         />
+          <div ref={domainEl}
+               style={{
+                 width: "620px",
+                 height: "350px",
+                 color: "rgb(0, 147, 233)",
+                 fontFamily: "sans-serif",
+                 fontWeight: "800",
+                 fontSize: "70px",
+                 display: "flex",
+                 textAlign: "center",
+                 justifyContent: "center",
+                 alignItems: "center"
+               }}
+          >
+            <p style={{margin: 0, verticalAlign: "baseline", lineHeight:"80px", overflowWrap: "anywhere"}}>{Domains}</p>
+          </div>
       </div>           
       </>
     );
