@@ -5,7 +5,7 @@ import Domains from "./domains";
 import { format, parseISO } from 'date-fns';
 import { SimpleGrid, Flex, Spacer } from '@chakra-ui/react'
 import Graphemer from 'graphemer';
-import "@fontsource/montserrat/800.css";
+
 
 const SCALE = 1;
 
@@ -81,8 +81,8 @@ const EVAssets = () => {
         ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
 
     
-        ctx.font = "20px sans-serif";
-        ctx.textAlign = "right";  
+        //ctx.font = "20px sans-serif";
+        //ctx.textAlign = "right";  
         //ctx.fillText(nmcAsset, imgWidth*(2-SCALE)-35, imgHeight*(2-SCALE)-68);
         //ctx.fillText(`${registrationImage}`, imgWidth*(2-SCALE) - 35, imgHeight*(2-SCALE) - 43);
     

@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 
+
 const breakpoints = createBreakpoints({
   sm: '30em',
   md: '48em',
