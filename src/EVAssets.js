@@ -81,6 +81,12 @@ const EVAssets = () => {
         ctx.textBaseline = "middle";
         ctx.fillText(Rank.replace(/\s/g, ""), imgWidth*(1-SCALE + 1/2), 60);
 
+        ctx.font = "42px Montserrat"
+        ctx.fillText(Registration, imgWidth*(1-SCALE + 1/2), imgHeight-60);
+
+        ctx.font = "30px Montserrat"
+        ctx.fillText("First Registration", imgWidth*(1-SCALE + 1/2), imgHeight-105);
+
         ctx.font = "70px Montserrat"
         ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
 
