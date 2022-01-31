@@ -1,37 +1,25 @@
 import { useRef, useState } from "react";
 import Description from "./Description";
 import { useParams } from "react-router-dom";
-import Punycodes from "./punycodes";
+import Domains from "./domains";
 import { format, parseISO } from 'date-fns';
 import { SimpleGrid, Flex, Spacer } from '@chakra-ui/react'
 import Graphemer from 'graphemer';
 
-const tr46 = require("tr46");
 const SCALE = 1;
-
-
 
 const EVAssets = () => {
     const canvasEl = useRef(null);
     const imgEl = useRef(null);
     const [title, setTitle] = useState("");
-    const [unicode, setUnicode] = useState("");
-    const {prefix, punycode} = useParams();
-    const [translation, setTranslation] = useState("");
+    const {prefix, domain} = useParams();
 
-    const nmcAsset = prefix.concat("/"+punycode);
-    const punyDescription = Punycodes.find(({ ID }) => ID === nmcAsset);
-    const {Day, Month, Year, Category} = punyDescription;
-    const monthFormatted = Month < 10 ? `0${Month}` : Month;
-    const dayFormatted = Day < 10 ? `0${Day}` : Day;
-    const date = `${Year}-${monthFormatted}-${dayFormatted}`;
-
-    const registrationImage = format(parseISO(date), "yyyy-MM-dd");
-    const registrationTitle = format(parseISO(date), "yyyy-MM");
-    const registrationDescription = format(parseISO(date), "MMM do, yyyy");
+    const nmcAsset = prefix.concat("/"+domain);
+    //const punyDescription = Punycodes.find(({ ID }) => ID === nmcAsset);
+    //const {Day, Month, Year, Category} = punyDescription;
 
     const calculateFontSize = (unicode, Category) => {
-      const splitter = new Graphemer();
+      /* const splitter = new Graphemer();
 
       const graphemeCount = splitter.countGraphemes(unicode);
       switch(Category) {
@@ -65,17 +53,13 @@ const EVAssets = () => {
           return "100px";
         case "Symbol":
           return "180px";
-        default:
+        default: */
           return "150px";
-      }
+      
     }
 
-    const onLoad = () => {   
-        const punycode = nmcAsset.substring(nmcAsset.indexOf("/")+1,nmcAsset.length);
-        const convertedPunycode = tr46.toUnicode(punycode).domain;
-        
-        const fontSize = calculateFontSize(convertedPunycode, Category);
-        setUnicode(convertedPunycode);
+    const onLoad = () => {           
+        const fontSize = "120px";
     
         const canvas = canvasEl.current;
         const imgWidth = imgEl.current.width;
@@ -93,28 +77,22 @@ const EVAssets = () => {
         ctx.textAlign = "center";
         ctx.fillStyle = "white";
         ctx.textBaseline = "middle";
-        ctx.fillText(convertedPunycode, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
-        if (Category === "Text") {
-          ctx.font = "45px sans-serif";
-          if (translation !== "") {
-            ctx.fillText(`(${translation})`, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2)+100);
-          }
-        }
+        ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
 
     
         ctx.font = "20px sans-serif";
         ctx.textAlign = "right";  
-        ctx.fillText(nmcAsset, imgWidth*(2-SCALE)-35, imgHeight*(2-SCALE)-68);
-        ctx.fillText(`${registrationImage}`, imgWidth*(2-SCALE) - 35, imgHeight*(2-SCALE) - 43);
+        //ctx.fillText(nmcAsset, imgWidth*(2-SCALE)-35, imgHeight*(2-SCALE)-68);
+        //ctx.fillText(`${registrationImage}`, imgWidth*(2-SCALE) - 35, imgHeight*(2-SCALE) - 43);
     
-        setTitle(`${convertedPunycode} | ${registrationTitle} | Punycodes | ${nmcAsset}`);
+        //setTitle(`${convertedPunycode} | ${registrationTitle} | Punycodes | ${nmcAsset}`);
    };    
 
     return (
     <>
      <Flex direction={{base: "column", xl: "row"}}>
        <canvas ref={canvasEl} style={{marginLeft: "8vh", marginTop: "8vh"}}></canvas>
-          <Description 
+          {/*<Description 
             title={title} 
             punycode={unicode} 
             nmcAsset={nmcAsset} 
@@ -123,7 +101,7 @@ const EVAssets = () => {
             translation={translation}
             setTranslation={setTranslation}
             onLoad={onLoad}
-          /> 
+          /> */}
      </Flex>
       <div style={{ display: "none" }}>
         <img
