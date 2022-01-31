@@ -15,7 +15,7 @@ const breakpoints = createBreakpoints({
   '2xl': '96em'
 })
 
-const theme = extendTheme({ breakpoints })
+const theme = extendTheme({ breakpoints})
 
 
 ReactDOM.render(

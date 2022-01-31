@@ -5,6 +5,7 @@ import Domains from "./domains";
 import { format, parseISO } from 'date-fns';
 import { SimpleGrid, Flex, Spacer } from '@chakra-ui/react'
 import Graphemer from 'graphemer';
+import "@fontsource/montserrat/800.css";
 
 const SCALE = 1;
 
@@ -73,7 +74,7 @@ const EVAssets = () => {
     
         ctx.drawImage(imgEl.current, imgWidth*(1-SCALE), imgHeight*(1-SCALE));
     
-        ctx.font = `${fontSize} sans-serif`
+        ctx.font = `${fontSize} Montserrat`
         ctx.textAlign = "center";
         ctx.fillStyle = "white";
         ctx.textBaseline = "middle";
