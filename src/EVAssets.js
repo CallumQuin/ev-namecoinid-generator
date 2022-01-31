@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Description from "./Description";
 import { useParams } from "react-router-dom";
-import Domains from "./domains";
+import DomainName from "./domains";
 import { format, parseISO } from 'date-fns';
 import { SimpleGrid, Flex, Spacer } from '@chakra-ui/react'
 import Graphemer from 'graphemer';
@@ -16,6 +16,9 @@ const EVAssets = () => {
     const {prefix, domain} = useParams();
 
     const nmcAsset = prefix.concat("/"+domain);
+    const domainObj = DomainName.find(({Domains}) => Domains == nmcAsset);
+    const {Rank, Domains, Registration, Time} = domainObj;
+    console.log(domainObj)
     //const punyDescription = Punycodes.find(({ ID }) => ID === nmcAsset);
     //const {Day, Month, Year, Category} = punyDescription;
 
@@ -59,9 +62,7 @@ const EVAssets = () => {
       
     }
 
-    const onLoad = () => {           
-        const fontSize = "120px";
-    
+    const onLoad = () => {        
         const canvas = canvasEl.current;
         const imgWidth = imgEl.current.width;
         const imgHeight = imgEl.current.height;
@@ -74,11 +75,15 @@ const EVAssets = () => {
     
         ctx.drawImage(imgEl.current, imgWidth*(1-SCALE), imgHeight*(1-SCALE));
     
-        ctx.font = `${fontSize} Montserrat`
+        ctx.font = "50px Montserrat"
         ctx.textAlign = "center";
         ctx.fillStyle = "white";
         ctx.textBaseline = "middle";
+        ctx.fillText(Rank.replace(/\s/g, ""), imgWidth*(1-SCALE + 1/2), 60);
+
+        ctx.font = "70px Montserrat"
         ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
+
 
     
         //ctx.font = "20px sans-serif";
