@@ -82,14 +82,19 @@ const EVAssets = () => {
         ctx.fillText(Rank.replace(/\s/g, ""), imgWidth*(1-SCALE + 1/2), 60);
 
         ctx.font = "42px Montserrat"
-        ctx.fillText(Registration, imgWidth*(1-SCALE + 1/2), imgHeight-60);
+        ctx.fillText(Registration, imgWidth*(1-SCALE + 1/2), imgHeight-50);
 
         ctx.font = "30px Montserrat"
-        ctx.fillText("First Registration", imgWidth*(1-SCALE + 1/2), imgHeight-105);
+        ctx.fillText("First Registration", imgWidth*(1-SCALE + 1/2), imgHeight-95);
+
+        ctx.font = "25px Montserrat"
+        ctx.fillText(Time, imgWidth-80, imgHeight-35);
 
         ctx.font = "70px Montserrat"
+        ctx.fillStyle= "#0093e9"
         ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
 
+        
 
     
         //ctx.font = "20px sans-serif";
