@@ -16,9 +16,9 @@ const EVAssets = () => {
     const {prefix, domain} = useParams();
 
     const nmcAsset = prefix.concat("/"+domain);
-    const domainObj = DomainName.find(({Domains}) => Domains == nmcAsset);
+    const domainObj = DomainName.find(({Domains}) => Domains === nmcAsset);
     const {Rank, Domains, Registration, Time} = domainObj;
-    console.log(domainObj)
+    const isPunyCode = Domains.includes("xn--");
     //const punyDescription = Punycodes.find(({ ID }) => ID === nmcAsset);
     //const {Day, Month, Year, Category} = punyDescription;
 
@@ -95,6 +95,7 @@ const EVAssets = () => {
         ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
 
         
+        setTitle(`${Rank.replace(/\s/g, "")} | ${Domains} | ${Registration} | Namecoin Domain`);
 
     
         //ctx.font = "20px sans-serif";
@@ -102,23 +103,23 @@ const EVAssets = () => {
         //ctx.fillText(nmcAsset, imgWidth*(2-SCALE)-35, imgHeight*(2-SCALE)-68);
         //ctx.fillText(`${registrationImage}`, imgWidth*(2-SCALE) - 35, imgHeight*(2-SCALE) - 43);
     
-        //setTitle(`${convertedPunycode} | ${registrationTitle} | Punycodes | ${nmcAsset}`);
    };    
+   if (isPunyCode) {
+     return <p>Sorry</p>
+   }
 
     return (
+      
     <>
      <Flex direction={{base: "column", xl: "row"}}>
        <canvas ref={canvasEl} style={{marginLeft: "8vh", marginTop: "8vh"}}></canvas>
-          {/*<Description 
+          <Description 
             title={title} 
-            punycode={unicode} 
-            nmcAsset={nmcAsset} 
-            registration={registrationDescription}
-            category={Category}
-            translation={translation}
-            setTranslation={setTranslation}
-            onLoad={onLoad}
-          /> */}
+            rank={Rank.replace(/\s/g, "")}
+            domains={Domains}
+            registration={Registration}
+            time={Time}
+          />
      </Flex>
       <div style={{ display: "none" }}>
         <img
