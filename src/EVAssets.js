@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import Description from "./Description";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import DomainName from "./domains";
 import { Flex } from '@chakra-ui/react'
 
@@ -12,7 +12,6 @@ const EVAssets = () => {
     const domainEl = useRef(null);
     const [title, setTitle] = useState("");
     const {prefix, domain} = useParams();
-    const navigate = useNavigate();
 
     const nmcAsset = prefix.concat("/"+domain);
     const domainObj = DomainName.find(({Domains}) => Domains === nmcAsset);
@@ -32,24 +31,20 @@ const EVAssets = () => {
     
         ctx.drawImage(imgEl.current, imgWidth*(1-SCALE), imgHeight*(1-SCALE));
     
-        ctx.font = "50px Montserrat"
+        ctx.font = "800 50px sans-serif"
         ctx.textAlign = "center";
         ctx.fillStyle = "white";
         ctx.textBaseline = "middle";
         ctx.fillText(Rank.replace(/\s/g, ""), imgWidth*(1-SCALE + 1/2), 60);
 
-        ctx.font = "42px Montserrat"
+        ctx.font = "800 42px sans-serif"
         ctx.fillText(Registration, imgWidth*(1-SCALE + 1/2), imgHeight-50);
 
-        ctx.font = "30px Montserrat"
+        ctx.font = "800 30px sans-serif"
         ctx.fillText("First Registration", imgWidth*(1-SCALE + 1/2), imgHeight-95);
 
-        ctx.font = "25px Montserrat"
+        ctx.font = "800 25px sans-serif"
         ctx.fillText(Time.replace(/\s/g, ""), imgWidth-80, imgHeight-35);
-
-        ctx.font = "70px Montserrat"
-        ctx.fillStyle= "#0093e9"
-        //ctx.fillText(nmcAsset, imgWidth*(1-SCALE + 1/2), imgHeight*(1-SCALE+ 1/2));
 
          const svgCode = `
     <svg width="620" height="500" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +103,7 @@ const EVAssets = () => {
                  width: "620px",
                  height: "350px",
                  color: "rgb(0, 147, 233)",
-                 fontFamily: "sans-serif",
+                 fontFamily:  "sans-serif",
                  fontWeight: "800",
                  fontSize: "70px",
                  display: "flex",

@@ -6,6 +6,7 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { BrowserRouter } from "react-router-dom";
 
 import { createBreakpoints } from '@chakra-ui/theme-tools'
+import "./index.css";
 
 
 const breakpoints = createBreakpoints({
