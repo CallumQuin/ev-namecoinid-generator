@@ -48,7 +48,7 @@ const AssetForm = () => {
                  </Link>
               </WrapItem>
               <WrapItem>
-                <Link href="https://discord.gg/xkeaCsJjxr">
+                <Link href="https://twitter.com/HistoricDomains">
                   <Avatar name="twitter" src="/images/twitter.png" showBorder={false}/>
                  </Link>
               </WrapItem>
