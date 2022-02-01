@@ -56,7 +56,7 @@ Furthermore, you can use domain names to store details such as bitcoin addresses
           <Textarea
               value={description}
               isReadOnly
-              h="28em"
+              h="33em"
           />
             <Button onClick={onCopyDescription} ml={2}>
               {hasCopiedDescription ? 'Copied' : 'Copy'}

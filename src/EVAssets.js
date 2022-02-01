@@ -82,7 +82,7 @@ const EVAssets = () => {
     return (
      <>
      <Flex direction={{base: "column", xl: "row"}}>
-       <canvas ref={canvasEl} style={{marginLeft: "8vh", marginTop: "8vh"}}></canvas>
+       <canvas ref={canvasEl} style={{marginLeft: "8vh", marginTop: "15vh"}}></canvas>
           <Description 
             title={title} 
             rank={Rank.replace(/\s/g, "")}
