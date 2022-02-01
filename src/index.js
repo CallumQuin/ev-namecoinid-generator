@@ -22,7 +22,7 @@ const theme = extendTheme({ breakpoints})
 ReactDOM.render(
   <React.StrictMode>
   <ChakraProvider theme={theme}>
-   <BrowserRouter basename="/ev-punycode-generator">
+   <BrowserRouter>
     <App />
    </BrowserRouter>
   </ChakraProvider>

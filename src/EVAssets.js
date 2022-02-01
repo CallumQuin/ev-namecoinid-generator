@@ -2,10 +2,7 @@ import { useRef, useState } from "react";
 import Description from "./Description";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import DomainName from "./domains";
-import { format, parseISO } from 'date-fns';
-import { SimpleGrid, Flex, Spacer } from '@chakra-ui/react'
-import Graphemer from 'graphemer';
-
+import { Flex } from '@chakra-ui/react'
 
 const SCALE = 1;
 
@@ -21,48 +18,6 @@ const EVAssets = () => {
     const domainObj = DomainName.find(({Domains}) => Domains === nmcAsset);
     const {Rank, Domains, Registration, Time} = {...domainObj };
     const isPunyCode = Domains?.includes("xn--");
-    //const punyDescription = Punycodes.find(({ ID }) => ID === nmcAsset);
-    //const {Day, Month, Year, Category} = punyDescription;
-
-    const calculateFontSize = (unicode, Category) => {
-      /* const splitter = new Graphemer();
-
-      const graphemeCount = splitter.countGraphemes(unicode);
-      switch(Category) {
-        case "Emoji":
-          let size = "200px";
-          if (graphemeCount >= 11) {
-            size = "45px"
-          }
-          return size;
-        case "Text":
-          if (["xn--clchc0ea0b2g2a9gcd", "xn--xkc2al3hye2a",
-              "xn--xkc2dl3a5ee0h", "xn--smrgsbord-82a8p",
-              "xn--8-7sbabhcv6b1cfn"].includes(punycode)) {
-            return "100px";
-          } else if (["xn--cckbak0byl6e", "xn--n8juczb8ml64m5r6a",
-                      "xn--h9jeami8py253a", "xn--fiq4mp3eqscr2bfxgex2c",
-                      "xn--80ahnahceodec3ba", "xn--fiqq24b8jea300hll5d",
-                       "xn--eckfz3byc3fk"].includes(punycode)) {
-            return "90px";
-          } else if (graphemeCount >= 10) {
-            return "70px";
-          }
-          return "110px";
-        case "ASCII Art":
-          if (graphemeCount > 6) {
-            if (graphemeCount >= 11) {
-              return "70px";
-            }
-            return "80px";
-          }
-          return "100px";
-        case "Symbol":
-          return "180px";
-        default: */
-          return "150px";
-      
-    }
 
     const onLoad = () => {        
         const canvas = canvasEl.current;
@@ -143,7 +98,7 @@ const EVAssets = () => {
      </Flex>
       <div style={{ display: "none" }}>
         <img
-            src="/ev-punycode-generator/nmcframe.png"
+            src="/nmcframe.png"
             ref={imgEl}
             alt="nmcframe"
             onLoad={onLoad}

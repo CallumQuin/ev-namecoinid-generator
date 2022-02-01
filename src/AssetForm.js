@@ -1,15 +1,12 @@
 import {useState} from "react";
-import { Container, Flex, HStack, Image, VStack } from '@chakra-ui/react';
+import { Container, Flex, HStack, Image } from '@chakra-ui/react';
 import {
     FormControl,
     FormLabel,
     Input,
     Button,
-    FormErrorMessage,
-    FormHelperText,
   } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
-import { Heading } from '@chakra-ui/react';
 
 const AssetForm = () => {
     const [nmcAsset, setNmcAsset] = useState("");
@@ -28,7 +25,7 @@ const AssetForm = () => {
     return (
     <Container width="100vw" height="100vh">
         <Flex height="100%" direction="column" justify="center">
-            <Image src="./historic.png" />
+            <Image src="/historic.png" />
             <form onSubmit={onSubmit}>
               <HStack align="flex-end" mb={32}>
                 <FormControl>
