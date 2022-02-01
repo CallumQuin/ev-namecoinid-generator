@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { Container, HStack, VStack } from '@chakra-ui/react';
+import { Container, Flex, HStack, Image, VStack } from '@chakra-ui/react';
 import {
     FormControl,
     FormLabel,
@@ -27,10 +27,10 @@ const AssetForm = () => {
 
     return (
     <Container width="100vw" height="100vh">
-        <VStack>
-            <Heading size='2xl' mt="30vh" mb="2vh">Historical Domains</Heading>
+        <Flex height="100%" direction="column" justify="center">
+            <Image src="./historic.png" />
             <form onSubmit={onSubmit}>
-              <HStack align="flex-end">
+              <HStack align="flex-end" mb={32}>
                 <FormControl>
                     <FormLabel htmlFor="nmcAsset">Asset</FormLabel>
                     <Input id="nmcAsset" name="nmcAsset" type="text"
@@ -39,7 +39,7 @@ const AssetForm = () => {
                 <Button type="submit">Generate</Button>
               </HStack>
             </form>
-        </VStack>
+        </Flex>
     </Container>   
      )
 }
