@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import Description from "./Description";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import DomainName from "./domains";
 import { format, parseISO } from 'date-fns';
 import { SimpleGrid, Flex, Spacer } from '@chakra-ui/react'
@@ -15,11 +15,12 @@ const EVAssets = () => {
     const domainEl = useRef(null);
     const [title, setTitle] = useState("");
     const {prefix, domain} = useParams();
+    const navigate = useNavigate();
 
     const nmcAsset = prefix.concat("/"+domain);
     const domainObj = DomainName.find(({Domains}) => Domains === nmcAsset);
-    const {Rank, Domains, Registration, Time} = domainObj;
-    const isPunyCode = Domains.includes("xn--");
+    const {Rank, Domains, Registration, Time} = {...domainObj };
+    const isPunyCode = Domains?.includes("xn--");
     //const punyDescription = Punycodes.find(({ ID }) => ID === nmcAsset);
     //const {Day, Month, Year, Category} = punyDescription;
 
@@ -124,13 +125,12 @@ const EVAssets = () => {
         //ctx.fillText(`${registrationImage}`, imgWidth*(2-SCALE) - 35, imgHeight*(2-SCALE) - 43);
     
    };    
-   if (isPunyCode) {
-     return <p>Sorry</p>
+   if (isPunyCode || !domainObj) {
+     return <Navigate to="/" />
    }
 
     return (
-      
-    <>
+     <>
      <Flex direction={{base: "column", xl: "row"}}>
        <canvas ref={canvasEl} style={{marginLeft: "8vh", marginTop: "8vh"}}></canvas>
           <Description 
