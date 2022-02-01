@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { Avatar, Container, Flex, HStack, Image, Link, LinkOverlay, Wrap, WrapItem } from '@chakra-ui/react';
+import { Avatar, Container, Flex, HStack, Image, Link, Wrap, WrapItem } from '@chakra-ui/react';
 import {
     FormControl,
     FormLabel,
