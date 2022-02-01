@@ -23,21 +23,19 @@ const Description = ({title, rank, domains, registration, time}) => {
       
 Domain: ${domains}
       
-Mint Date: ${registration}, ${time}
+Mint Date: ${registration}, ${time.replace(/\s/g, "")}
       
 Total Supply of (d/) 2011 Domains: 12060
       
 Owning this NFT gives ownership of the bitcoin.bit domain and can be unwrapped to be used as server hosting content. This domain is in the standard d/form.
-      
+
 More importantly though, this is one of the earliest domain name NFTs ever stored on a blockchain. Namecoin was the first fork of Bitcoin and the first to store domain names on a blockchain.
-      
-Note, Namecoin is a domain name system (DNS) & thus assets need to be renewed (every 9 months). Have a small amount of $NMC in your vault & it'll autorenew.
-      
-1 $NMC = Autorenewal for 5 years
-      
-10 $NMC = Autorenewal for 50 years
-      
-People used Namecoin to register on-chain domain names along with other details such as their bitcoin address, profile/splash images, their occupation, etc.`)
+
+Note, Namecoin is a domain name system (DNS) & thus assets need to be renewed (every ~9 months). 
+
+Because the renewal cost fluctuates over time, we recommend having a balance of 2 $NMC in your vault and it'll auto-renew the domain for +50 years.  
+
+Furthermore, you can use domain names to store details such as bitcoin addresses, profile/splash images, occupations, etc.`)
     }
   }, [domains, rank, registration, time])
 

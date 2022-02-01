@@ -89,7 +89,7 @@ const EVAssets = () => {
         ctx.fillText("First Registration", imgWidth*(1-SCALE + 1/2), imgHeight-95);
 
         ctx.font = "25px Montserrat"
-        ctx.fillText(Time, imgWidth-80, imgHeight-35);
+        ctx.fillText(Time.replace(/\s/g, ""), imgWidth-80, imgHeight-35);
 
         ctx.font = "70px Montserrat"
         ctx.fillStyle= "#0093e9"
