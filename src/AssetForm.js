@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { Avatar, Container, Flex, HStack, Image, Link, Wrap, WrapItem } from '@chakra-ui/react';
+import { Avatar, Container, Flex, HStack, Image, Link, Wrap, WrapItem, Text } from '@chakra-ui/react';
 import {
     FormControl,
     FormLabel,
@@ -24,10 +24,10 @@ const AssetForm = () => {
 
     return (
     <Container width="100vw" height="100vh">
-        <Flex height="100%" direction="column" justify="end">
-            <Image src="/historic.png" />
+        <Flex height="100%" width="29vw" direction="column" justify="end">
+            <Image src="/historic.png"/>
             <form onSubmit={onSubmit}>
-              <HStack align="flex-end" mb="40vh">
+              <HStack align="flex-end" mb="5vh">
                 <FormControl>
                     <FormLabel htmlFor="nmcAsset">Asset</FormLabel>
                     <Input id="nmcAsset" name="nmcAsset" type="text"
@@ -36,6 +36,9 @@ const AssetForm = () => {
                 <Button type="submit">Generate</Button>
               </HStack>
             </form>
+            <Text mb="35vh" align="center">
+               At this moment, only 2011 (d/) domains can be used to generate this template.
+            </Text>
             <Wrap mb={4} alignSelf="center">
               <WrapItem>
                 <Link href="https://www.historicaldomains.io/">

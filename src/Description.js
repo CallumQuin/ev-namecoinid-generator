@@ -10,7 +10,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-const Description = ({title, rank, domains, registration, time}) => {
+const Description = ({title, rank, domains, registration, time, domainName}) => {
   const { hasCopied, onCopy } = useClipboard(title);
   const [description, setDescription] = useState("");
   const { hasCopied: hasCopiedDescription, onCopy: onCopyDescription } = useClipboard(description);
@@ -27,7 +27,7 @@ Mint Date: ${registration}, ${time.replace(/\s/g, "")}
       
 Total Supply of (d/) 2011 Domains: 12060
       
-Owning this NFT gives ownership of the bitcoin.bit domain and can be unwrapped to be used as server hosting content. This domain is in the standard d/form.
+Owning this NFT gives ownership of the ${domainName}.bit domain and can be unwrapped to be used as server hosting content. This domain is in the standard d/form.
 
 More importantly though, this is one of the earliest domain name NFTs ever stored on a blockchain. Namecoin was the first fork of Bitcoin and the first to store domain names on a blockchain.
 
@@ -37,7 +37,7 @@ Because the renewal cost fluctuates over time, we recommend having a balance of 
 
 Furthermore, you can use domain names to store details such as bitcoin addresses, profile/splash images, occupations, etc.`)
     }
-  }, [domains, rank, registration, time])
+  }, [domains, rank, registration, time, domainName])
 
    return (
     <Box w="100%" ml={24} mt={{base: "2em", xl: "0"}}>

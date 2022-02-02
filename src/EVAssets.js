@@ -89,6 +89,7 @@ const EVAssets = () => {
             domains={Domains}
             registration={Registration}
             time={Time}
+            domainName={domain}
           />
      </Flex>
       <div style={{ display: "none" }}>
