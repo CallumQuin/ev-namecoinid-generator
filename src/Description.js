@@ -25,7 +25,7 @@ Domain: ${domains}
       
 Mint Date: ${registration}, ${time.replace(/\s/g, "")}
       
-Total Supply of (d/) 2011 Domains: 12060
+Total Supply of (d/) 2011 Domains: 11,888
       
 Owning this NFT gives ownership of the ${domainName}.bit domain and can be unwrapped to be used as server hosting content. This domain is in the standard d/form.
 
