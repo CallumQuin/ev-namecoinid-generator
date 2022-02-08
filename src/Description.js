@@ -19,11 +19,11 @@ const Description = ({title, rank, domains, registration, time, domainName}) => 
     if (domains) {
       setDescription(`Instructions on how to verify the authenticity of this domain can be found at: https://www.historicaldomains.io/verify
 
-(d/) Mint order: ${rank}
+(d/) Registration Order: ${rank}
       
 Domain: ${domains}
       
-Mint Date: ${registration}, ${time.replace(/\s/g, "")}
+First Registration Date: ${registration}, ${time.replace(/\s/g, "")}
       
 Total Supply of (d/) 2011 Domains: 11,888
       
