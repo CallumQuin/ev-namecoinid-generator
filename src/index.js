@@ -20,11 +20,11 @@ const theme = extendTheme({ breakpoints })
 
 ReactDOM.render(
   <React.StrictMode>
-  <ChakraProvider theme={theme}>
-   <BrowserRouter basename="/ev-punycode-generator">
-    <App />
-   </BrowserRouter>
-  </ChakraProvider>
+    <ChakraProvider theme={theme}>
+      <BrowserRouter basename="/ev-punycode-generator">
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
